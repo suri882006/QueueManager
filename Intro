@@ -1,1 +1,53 @@
+Desktop version of RabbitMQ can be downloaded from 
+https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.3/rabbitmq-server-3.8.3.exe
+
+Ensure that the installation path has enough Admin access rights.
+To verify RabbitMQ is running as a service, check in services.msc
+
+C:\Users\I349215\Tools\RabbitMQ\rabbitmq_server-3.8.3\sbin
+
+CLI tools
+C:\Users\I349215\Tools\RabbitMQ\rabbitmq_server-3.8.3\sbin>rabbitmq-service start
+The requested service has already been started.
+
+http://localhost:15672/#/exchanges
+
+By default computer host name can be different can give below error when you start the server
+> rabbitmq-server start
+"WARNING: Using RABBITMQ_ADVANCED_CONFIG_FILE: C:\Users\I349215\AppData\Roaming\RabbitMQ\advanced.config"
+ERROR: epmd error for host INLN34726306A: address (cannot connect to host/port)
+
+To avoid this set rabbitmq-nodename as below (basically environment variables)
+
+>  set RABBITMQ_NODENAME=rabbit@localhost
+
+Now start the RabbitMQ server
+> rabbitmq-server start
+"WARNING: Using RABBITMQ_ADVANCED_CONFIG_FILE: C:\Users\I349215\AppData\Roaming\RabbitMQ\advanced.config"
+
+  ##  ##      RabbitMQ 3.8.3
+  ##  ##
+  ##########  Copyright (c) 2007-2020 Pivotal Software, Inc.
+  ######  ##
+  ##########  Licensed under the MPL 1.1. Website: https://rabbitmq.com
+
+  Doc guides: https://rabbitmq.com/documentation.html
+  Support:    https://rabbitmq.com/contact.html
+  Tutorials:  https://rabbitmq.com/getstarted.html
+  Monitoring: https://rabbitmq.com/monitoring.html
+
+  Logs: C:/Users/I349215/AppData/Roaming/RabbitMQ/log/rabbit@localhost.log
+        C:/Users/I349215/AppData/Roaming/RabbitMQ/log/rabbit@localhost_upgrade.log
+
+  Config file(s): c:/Users/I349215/AppData/Roaming/RabbitMQ/advanced.config
+  
+  
+--- Management client plugin
+
+This is already included in distribution package to enable it, run below command in CLI
+> rabbitmq-plugins enable rabbitmq_management
+
+From now you can view the Management client using browser  http://localhost:15672 with guest/guest as (default)credentials
+http://localhost:15672/#/exchanges
+  
 
